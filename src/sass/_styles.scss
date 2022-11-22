@@ -40,6 +40,48 @@ body {
     padding: 10px;
 }
 
+.gallery {
+    max-width: 1200px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px auto;
+    display: flex;
+}
+
+.photo-card {
+    min-width: 300px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.photo-img {
+    height: 200px;
+    min-width: 100%;
+    max-width: 300px;
+    object-fit: cover;
+}
+
+.info {
+    max-width: 300px;
+    height: 70px;
+    border: 1px solid #f1f1f1;
+    justify-content: space-around;
+    display: flex;
+    font-size: 13px;
+}
+
+.info-item {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
 .load-more {
     display: flex;
     margin: 10px auto 20px;
@@ -50,5 +92,12 @@ body {
     background: #4056b4;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px #000000;
+}
+
+.load-more:hover,
+.load-more:focus {
+    box-shadow: 5px 5px 5px #000000;
     cursor: pointer;
 }
