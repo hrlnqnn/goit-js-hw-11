@@ -1,20 +1,33 @@
-import axios from 'axios';
+const axios = require('axios').default;
 
-const url = 'https://pixabay.com/api';
-const key = '31530032-bcbc50fc25a9a5255ae59ed3d';
-const image_type = 'image_type=photo';
-const orientation = 'orientation=horizontal';
-const safesearch = 'safesearch=true';
-
-export async function fetchImages(name, page) {
-    try {
-        const result = axios.get(
-            `${url}/?key=${key}&q=${name}&${image_type}&${orientation}&${safesearch}&page=${page}&${per_page}`
-        );
-        return result;
-    } catch (error) {
-        console.log(error);
+export default class SearchImg {
+    constructor() {
+        this.name = '';
+        this.page = 1;
+    }
+    async fetchImgByName() {
+        try {
+            const response = await axios.get('https://pixabay.com/api/', {
+                params: {
+                    key: '31392505-41b93051c6715e7012a1d9703',
+                    q: this.name,
+                    page: this.page,
+                    per_page: 12,
+                    image_type: 'photo',
+                    orientation: 'horizontal',
+                    safesearch: true,
+                },
+            });
+            this.page += 1;
+            return response.data;
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+    get query() {
+        return this.name;
+    }
+    set query(newName) {
+        this.name = newName;
     }
 }
-
-const per_page = 'per_page=40';
