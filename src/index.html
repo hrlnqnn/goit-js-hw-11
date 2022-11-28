@@ -8,28 +8,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./sass/index.scss" />
-  <script type="module" src="./js/index.js"></script>
+  <link rel="stylesheet" href="./styles/style.css" />
+  <script type="module" src="./index.js"></script>
 </head>
 
 <body>
-
-  <div class="container">
-    <div class="head-block">
-      <form class="search-form" id="search-form">
-        <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." class="input-form" />
-        <button type="submit" class="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-      </form>
-    </div>
-
-
-    <div class="gallery">
-    </div>
-    <div class="btn-group is-hidden">
-      <button type="button" class="load-more">Load more</button>
-      <button type="button" class="reset">Reset</button>
-    </div>
+  <form class="search-form" id="search-form">
+    <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." class="input-form" />
+    <button type="submit" class="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+  </form>
+  <div class="gallery">
   </div>
+  <button class="load-more is-hidden" type="button">Load more</button>
 </body>
 
 </html>
