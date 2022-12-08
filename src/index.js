@@ -15,7 +15,11 @@ const refs = {
 let inputValue = '';
 let page = 1;
 const perPage = 40;
-let lightbox = null;
+let lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  captionPosition: 'bottom',
+});
 
 refs.loadMoreBtn.style.display = 'none';
 refs.searchForm.addEventListener('submit', onSearchFormSubmit);
@@ -61,6 +65,7 @@ async function loadPics(inputValue, page) {
     console.log(error);
   } finally {
     refs.searchForm.reset();
+    lightbox.refresh();
   }
 }
 
@@ -113,11 +118,11 @@ function renderGalleryMarkup(stats) {
     lightbox.refresh();
   }
 
-  lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-    captionPosition: 'bottom',
-  });
+  // lightbox = new SimpleLightbox('.gallery a', {
+  //   captionsData: 'alt',
+  //   captionDelay: 250,
+  //   captionPosition: 'bottom',
+  // });
 }
 
 async function onLoadMoreBtnClick() {
